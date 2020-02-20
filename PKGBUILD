@@ -34,6 +34,11 @@ source=("$pkgname-$pkgver.tar.gz::https://github.com/frankaemika/franka_ros-rele
 md5sums=('f476f34d7351f3da95f78151fef5e0e9'
          '208ddfcf5cf985f1bbd6a9c4bb9c2352')
 
+prepare() {
+    cd "${srcdir}/${_dir}"
+    patch --forward --strip=1 --input="${srcdir}/fix_pthread.patch"
+}
+
 build() {
 	# Use ROS environment variables
   	source /usr/share/ros-build-tools/clear-ros-env.sh
