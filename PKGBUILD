@@ -9,35 +9,38 @@ url="http://wiki.ros.org/franka_control"
 license=('Apache 2.0')
 
 makedepends=(
-
+'cmake'
 'ros-melodic-message-generation'
-'ros-melodic-libfranka'
-
+'ros-melodic-rostest'
 )
 
 depends=(
-
 'ros-melodic-libfranka'
+'ros-melodic-actionlib'
+'ros-melodic-actionlib-msgs'
+'ros-melodic-controller-interface'
+'ros-melodic-controller-manager'
+'ros-melodic-franka-hw'
+'ros-melodic-franka-msgs'
+'ros-melodic-geometry-msgs'
+'ros-melodic-pluginlib'
+'ros-melodic-realtime-tools'
+'ros-melodic-roscpp'
+'ros-melodic-sensor-msgs'
+'ros-melodic-tf2-msgs'
+'ros-melodic-tf'
 'ros-melodic-franka-description'
 'ros-melodic-franka-gripper'
 'ros-melodic-joint-state-publisher'
 'ros-melodic-message-runtime'
 'ros-melodic-robot-state-publisher'
-
 )
 
 provides=($pkgname)
 conflicts=($pkgname)
 _dir="franka_ros-release-release-melodic-franka_control-0.6.0-1"
-source=("$pkgname-$pkgver.tar.gz::https://github.com/frankaemika/franka_ros-release/archive/release/melodic/franka_control/0.6.0-1.tar.gz"
-        "fix_pthread.patch")
-md5sums=('f476f34d7351f3da95f78151fef5e0e9'
-         '208ddfcf5cf985f1bbd6a9c4bb9c2352')
-
-prepare() {
-    cd "${srcdir}/${_dir}"
-    patch --forward --strip=1 --input="${srcdir}/fix_pthread.patch"
-}
+source=("$pkgname-$pkgver.tar.gz::https://github.com/frankaemika/franka_ros-release/archive/release/melodic/franka_control/0.6.0-1.tar.gz")
+md5sums=('f476f34d7351f3da95f78151fef5e0e9')
 
 build() {
 	# Use ROS environment variables
