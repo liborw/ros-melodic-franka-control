@@ -3,10 +3,15 @@ pkgbase = ros-melodic-franka-control
 	pkgver = 0.6.0
 	pkgrel = 1
 	url = http://wiki.ros.org/franka_control
+	arch = i686
 	arch = x86_64
+	arch = aarch64
+	arch = armv7h
+	arch = armv6h
 	license = Apache 2.0
 	makedepends = cmake
-	makedepends = ros-melodic-message-generation
+	makedepends = ros-build-tools
+	makedepends = ros-melodic-catkin
 	makedepends = ros-melodic-rostest
 	depends = ros-melodic-libfranka
 	depends = ros-melodic-actionlib
@@ -29,8 +34,8 @@ pkgbase = ros-melodic-franka-control
 	depends = ros-melodic-robot-state-publisher
 	provides = ros-melodic-franka-control
 	conflicts = ros-melodic-franka-control
-	source = ros-melodic-franka-control-0.6.0.tar.gz::https://github.com/frankaemika/franka_ros-release/archive/release/melodic/franka_control/0.6.0-1.tar.gz
-	md5sums = f476f34d7351f3da95f78151fef5e0e9
+	source = ros-melodic-franka-control-0.6.0.tar.gz::https://github.com/frankaemika/franka_ros/archive/0.6.0.tar.gz
+	sha256sums = 6bfc7f743569e7491d44b82e1b9c39ace55881b7f42e4952e202e13d1e70a6b9
 
 pkgname = ros-melodic-franka-control
 

@@ -1,20 +1,23 @@
-
-# Maintainer: 
 pkgname="ros-melodic-franka-control"
 pkgver="0.6.0"
 pkgrel=1
 pkgdesc="franka_control provides a hardware node to control a Franka Emika research robot"
-arch=('x86_64')
+arch=('i686' 'x86_64' 'aarch64' 'armv7h' 'armv6h')
 url="http://wiki.ros.org/franka_control"
 license=('Apache 2.0')
 
-makedepends=(
-'cmake'
-'ros-melodic-message-generation'
+ros_makedepends=(
+'ros-melodic-catkin'
 'ros-melodic-rostest'
 )
 
-depends=(
+makedepends=(
+'cmake'
+'ros-build-tools'
+${ros_makedepends[@]}
+)
+
+ros_depends=(
 'ros-melodic-libfranka'
 'ros-melodic-actionlib'
 'ros-melodic-actionlib-msgs'
@@ -36,11 +39,16 @@ depends=(
 'ros-melodic-robot-state-publisher'
 )
 
+depends=(
+${ros_depends[@]}
+)
+
 provides=($pkgname)
 conflicts=($pkgname)
-_dir="franka_ros-release-release-melodic-franka_control-0.6.0-1"
-source=("$pkgname-$pkgver.tar.gz::https://github.com/frankaemika/franka_ros-release/archive/release/melodic/franka_control/0.6.0-1.tar.gz")
-md5sums=('f476f34d7351f3da95f78151fef5e0e9')
+
+_dir="franka_ros-$pkgver/franka_control"
+source=("$pkgname-$pkgver.tar.gz::https://github.com/frankaemika/franka_ros/archive/$pkgver.tar.gz")
+sha256sums=(6bfc7f743569e7491d44b82e1b9c39ace55881b7f42e4952e202e13d1e70a6b9)
 
 build() {
 	# Use ROS environment variables
