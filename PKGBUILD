@@ -1,6 +1,6 @@
 pkgname="ros-melodic-franka-control"
 pkgver="0.6.0"
-pkgrel=1
+pkgrel=2
 pkgdesc="franka_control provides a hardware node to control a Franka Emika research robot"
 arch=('i686' 'x86_64' 'aarch64' 'armv7h' 'armv6h')
 url="http://wiki.ros.org/franka_control"
